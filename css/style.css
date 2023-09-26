@@ -1,0 +1,159 @@
+.header {
+    background: #f9f9f9;
+}
+
+.header .inner {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+}
+
+@media (max-width:768px) {
+
+    .header .inner {
+        flex-direction: column;
+    }
+}
+
+.header .gnb>ul {
+    display: flex;
+    gap: 60rem;
+
+}
+
+/* gap을 줘서 넓이를 주면 반응형 만들 때 힘들어짐 / 가상요소로 중간에 바를 넣어서 정리하거나함 */
+
+.header .gnb>ul>li {
+    position: relative;
+}
+
+.header .gnb>ul>li>a {
+    display: block;
+    line-height: 100rem;
+}
+
+.header .gnb .submenu {
+    position: absolute;
+    top: 100rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    width: 180rem;
+    background: #fff;
+    border: 3px solid tomato;
+    text-align: center;
+
+    display: none;
+}
+
+.header .gnb li:hover .submenu {
+    display: block;
+}
+
+.header .gnb .submenu li~li {
+    border-top: 1px solid #ddd;
+}
+
+.header .gnb .submenu a {
+    display: block;
+    line-height: 40rem;
+}
+
+@media (max-width:768px) {
+    .header .gnb {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        z-index: 9999;
+
+        background: #ddd;
+        height: 100vh;
+        width: calc(100% - 90rem);
+
+        padding: 100rem 24rem 0 24rem;
+    }
+
+    .header .gnb.on {
+        left: 0;
+        /* gnb가 on이 되면 메뉴가 나온다 */
+    }
+
+    .header .gnb>ul {
+        flex-direction: column;
+        gap: 0;
+
+    }
+
+    .header .gnb>ul>li>a {
+        display: block;
+        line-height: 40rem;
+    }
+
+    .header .gnb .submenu {
+        position: static;
+        transform: translate(0, 0);
+
+        width: auto;
+        background: #fff;
+        border: none;
+        text-align: center;
+
+        display: none;
+
+        /* trasiton이 들어가면 버벅거림 */
+    }
+
+    .header .gnb li:hover .submenu {
+        display: none;
+    }
+
+    .header .gnb .submenu li~li {
+        border-top: 1px solid #ddd;
+    }
+
+    .header .gnb .submenu a {
+        display: block;
+        line-height: 40rem;
+    }
+}
+
+.section {
+    padding: 100rem 0;
+}
+
+.section .inner {
+    display: flex;
+    gap: 30rem;
+}
+
+@media (max-width:768px) {
+
+    .section .inner {
+        flex-direction: column;
+    }
+}
+
+.section .inner figure {
+    flex: 1;
+}
+
+
+@media (max-width:768px) {
+
+    .section .inner .img {
+        width: 100%;
+    }
+}
+
+.mopen {
+    display: none;
+}
+
+@media (max-width:768px) {
+    .mopen {
+        position: fixed;
+        top: 30rem;
+        right: 30rem;
+        display: block;
+    }
+}

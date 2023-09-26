@@ -1,0 +1,44 @@
+html {
+    font-size: 6.25%;
+}
+
+@media (max-width:500px) {
+    html {
+        font-size: 0.25641025641vw;
+        /* width가 390인 size에 맞춤 (16/390*6.25/100) 디자인 사이즈 */
+    }
+
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+body {
+    font-size: 16rem;
+    line-height: 1;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+.inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.r_inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
